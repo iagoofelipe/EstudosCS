@@ -31,7 +31,7 @@ class Program
         """);
 
         Console.Write("Digite a sua opção: ");
-        
+
         string opcaoEscolhida = Console.ReadLine()!;
         int[] opcoes = [1, 2, 3, 4];
         int opcaoEscolhidaNumerica;
@@ -48,13 +48,10 @@ class Program
         catch (System.FormatException)
         {
             Console.WriteLine("Você não digitou uma opção válida!");
-            return;
+            return 0;
         }
 
         return opcaoEscolhidaNumerica;
     }
 
 }
-
-
-

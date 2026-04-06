@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="001-PrimeiroProjeto/001-PrimeiroProjeto.csproj" />
+  <Project Path="002-SegundoProjeto/002-SegundoProjeto.csproj" />
+  <Project Path="003-PrimeiroJogoC#/003-PrimeiroJogoC#.csproj" />
+</Solution>

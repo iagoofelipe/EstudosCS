@@ -27,7 +27,7 @@
                 break;
             }
 
-        } while(true);
+        } while (true);
     }
 
     static int? GetSuggestion()
@@ -51,9 +51,8 @@
         }
 
         if (tip)
-            Console.WriteLine($"Poxa.. O número é {(number > suggestion? "maior" : "menor")} que {suggestion}");
+            Console.WriteLine($"Poxa.. O número é {(number > suggestion ? "maior" : "menor")} que {suggestion}");
 
         return false;
     }
 }
-
