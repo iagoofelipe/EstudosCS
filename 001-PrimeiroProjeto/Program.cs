@@ -1,35 +1,38 @@
 ﻿
 class Program
 {
-    static List<string> nomeBandas = new();
+    static List<string> nomeBandas = new List<string> { "U2", "The Beatles", "Iron Maiden", "The Neighbourhood" };
+    static string separador = "=====================================================================================";
 
     public static void Main(String[] args)
     {
         int opcao;
-        do
+
+        while (true)
         {
+            Console.Clear();
             opcao = Menu();
+
+            if (opcao == 0)
+                break;
+
+            Console.Clear();
+
             switch (opcao)
             {
-            case 1:
-                RegistrarBanda();
+            case 1: RegistrarBanda();
                 break;
-            case 2:
-                MostrarBandas();
+            case 2: MostrarBandas();
                 break;
-            case 3:
-                Console.WriteLine("Avaliar uma banda");
+            case 3: AvaliarBanda();
                 break;
-            case 4:
-                Console.WriteLine("Exibir a média de uma banda");
-                break;
-            case 0:
-                Console.WriteLine("Saindo...");
-                Thread.Sleep(1000);
+            case 4: ExibirMediaBanda();
                 break;
             }
-        } while (opcao != 0);
-        
+
+            Console.WriteLine("\nPressione qualquer tecla para retornar ao menu...");
+            Console.ReadKey();
+        } 
     }
 
     static int Menu()
@@ -83,26 +86,32 @@ class Program
 
     static void RegistrarBanda()
     {
-        Console.Clear();
-        Console.Write("Registro de bandas\nDigite o nome da banda que deseja registriar: ");
+        Console.Write($"{separador}\n\nRegistro de bandas\n\n{separador}\n\nDigite o nome da banda que deseja registriar: ");
         string nomeBanda = Console.ReadLine()!;
+        if (nomeBanda.Length == 0)
+        {
+            Console.WriteLine("Nenhum valor fornecido!");
+            return;
+        }
+
         nomeBandas.Add(nomeBanda);
         Console.WriteLine($"A banda {nomeBanda} foi registrada com sucesso!");
-        AguardarParaRetornarAoMenu();
+        
     }
 
     static void MostrarBandas()
     {
-        Console.Clear();
-        Console.WriteLine("Bandas registradas:");
+        Console.WriteLine($"{separador}\n\nBandas registradas\n\n{separador}\n");
         nomeBandas.ForEach(banda => Console.WriteLine($"- {banda}"));
-        AguardarParaRetornarAoMenu();
     }
 
-    static void AguardarParaRetornarAoMenu()
+    static void AvaliarBanda()
     {
-        Console.WriteLine("\nPressione enter para retornar ao menu...");
-        Console.ReadLine();
-        Console.Clear();
+        Console.WriteLine($"{separador}\n\nAvaliar uma banda\n\n{separador}");
+    }
+
+    static void ExibirMediaBanda(string? nomeBanda = null)
+    {
+        Console.WriteLine($"{separador}\n\nExibir média de uma banda\n\n{separador}");
     }
 }
